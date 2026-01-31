@@ -1,6 +1,7 @@
 import { html, nothing } from "lit";
 
 import { formatEventPayload } from "../presenter";
+import { t } from "../i18n/index.js";
 import type { EventLogEntry } from "../app-events";
 
 export type DebugProps = {
@@ -42,11 +43,11 @@ export function renderDebug(props: DebugProps) {
       <div class="card">
         <div class="row" style="justify-content: space-between;">
           <div>
-            <div class="card-title">Snapshots</div>
-            <div class="card-sub">Status, health, and heartbeat data.</div>
+            <div class="card-title">${t("debug.snapshots")}</div>
+            <div class="card-sub">${t("debug.snapshots.desc")}</div>
           </div>
           <button class="btn" ?disabled=${props.loading} @click=${props.onRefresh}>
-            ${props.loading ? "Refreshing…" : "Refresh"}
+            ${props.loading ? t("status.loading") : t("action.refresh")}
           </button>
         </div>
         <div class="stack" style="margin-top: 12px;">
@@ -72,11 +73,11 @@ export function renderDebug(props: DebugProps) {
       </div>
 
       <div class="card">
-        <div class="card-title">Manual RPC</div>
-        <div class="card-sub">Send a raw gateway method with JSON params.</div>
+        <div class="card-title">${t("debug.rpc")}</div>
+        <div class="card-sub">${t("debug.rpc.desc")}</div>
         <div class="form-grid" style="margin-top: 16px;">
           <label class="field">
-            <span>Method</span>
+            <span>${t("debug.method")}</span>
             <input
               .value=${props.callMethod}
               @input=${(e: Event) =>

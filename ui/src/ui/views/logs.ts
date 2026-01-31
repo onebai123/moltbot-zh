@@ -1,6 +1,7 @@
 import { html, nothing } from "lit";
 
 import type { LogEntry, LogLevel } from "../types";
+import { t } from "../i18n/index.js";
 
 const LEVELS: LogLevel[] = ["trace", "debug", "info", "warn", "error", "fatal"];
 
@@ -50,12 +51,12 @@ export function renderLogs(props: LogsProps) {
     <section class="card">
       <div class="row" style="justify-content: space-between;">
         <div>
-          <div class="card-title">Logs</div>
-          <div class="card-sub">Gateway file logs (JSONL).</div>
+          <div class="card-title">${t("logs.title")}</div>
+          <div class="card-sub">${t("logs.desc")}</div>
         </div>
         <div class="row" style="gap: 8px;">
           <button class="btn" ?disabled=${props.loading} @click=${props.onRefresh}>
-            ${props.loading ? "Loading…" : "Refresh"}
+            ${props.loading ? t("status.loading") : t("action.refresh")}
           </button>
           <button
             class="btn"
@@ -69,12 +70,12 @@ export function renderLogs(props: LogsProps) {
 
       <div class="filters" style="margin-top: 14px;">
         <label class="field" style="min-width: 220px;">
-          <span>Filter</span>
+          <span>${t("action.filter")}</span>
           <input
             .value=${props.filterText}
             @input=${(e: Event) =>
               props.onFilterTextChange((e.target as HTMLInputElement).value)}
-            placeholder="Search logs"
+            placeholder="${t("logs.search")}"
           />
         </label>
         <label class="field checkbox">

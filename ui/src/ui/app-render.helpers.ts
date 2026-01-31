@@ -2,6 +2,7 @@ import { html } from "lit";
 import { repeat } from "lit/directives/repeat.js";
 
 import type { AppViewState } from "./app-view-state";
+import { t } from "./i18n/index.js";
 import { iconForTab, pathForTab, titleForTab, type Tab } from "./navigation";
 import { icons } from "./icons";
 import { loadChatHistory } from "./controllers/chat";
@@ -95,7 +96,7 @@ export function renderChatControls(state: AppViewState) {
           state.resetToolStream();
           void refreshChat(state as unknown as Parameters<typeof refreshChat>[0]);
         }}
-        title="Refresh chat data"
+        title="${t("chat.refresh")}"
       >
         ${refreshIcon}
       </button>
@@ -111,9 +112,9 @@ export function renderChatControls(state: AppViewState) {
           });
         }}
         aria-pressed=${showThinking}
-        title=${disableThinkingToggle
-          ? "Disabled during onboarding"
-          : "Toggle assistant thinking/working output"}
+        title="${disableThinkingToggle
+          ? t("chat.thinking.disabled")
+          : t("chat.thinking.toggle")}"
       >
         ${icons.brain}
       </button>
@@ -128,9 +129,9 @@ export function renderChatControls(state: AppViewState) {
           });
         }}
         aria-pressed=${focusActive}
-        title=${disableFocusToggle
-          ? "Disabled during onboarding"
-          : "Toggle focus mode (hide sidebar + page header)"}
+        title="${disableFocusToggle
+          ? t("chat.focus.disabled")
+          : t("chat.focus.toggle")}"
       >
         ${focusIcon}
       </button>
@@ -215,8 +216,8 @@ export function renderThemeToggle(state: AppViewState) {
           class="theme-toggle__button ${state.theme === "system" ? "active" : ""}"
           @click=${applyTheme("system")}
           aria-pressed=${state.theme === "system"}
-          aria-label="System theme"
-          title="System"
+          aria-label="${t("settings.theme.system")}"
+          title="${t("settings.theme.system")}"
         >
           ${renderMonitorIcon()}
         </button>
@@ -224,8 +225,8 @@ export function renderThemeToggle(state: AppViewState) {
           class="theme-toggle__button ${state.theme === "light" ? "active" : ""}"
           @click=${applyTheme("light")}
           aria-pressed=${state.theme === "light"}
-          aria-label="Light theme"
-          title="Light"
+          aria-label="${t("settings.theme.light")}"
+          title="${t("settings.theme.light")}"
         >
           ${renderSunIcon()}
         </button>
@@ -233,8 +234,8 @@ export function renderThemeToggle(state: AppViewState) {
           class="theme-toggle__button ${state.theme === "dark" ? "active" : ""}"
           @click=${applyTheme("dark")}
           aria-pressed=${state.theme === "dark"}
-          aria-label="Dark theme"
-          title="Dark"
+          aria-label="${t("settings.theme.dark")}"
+          title="${t("settings.theme.dark")}"
         >
           ${renderMoonIcon()}
         </button>
