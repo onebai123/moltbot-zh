@@ -1,8 +1,8 @@
 import { html, nothing } from "lit";
-
-import { formatAgo } from "../format";
+import { t } from "../i18n/index.js";
 import type { DiscordStatus } from "../types";
 import type { ChannelsProps } from "./channels.types";
+import { formatAgo } from "../format";
 import { renderChannelConfigSection } from "./channels.config";
 
 export function renderDiscordCard(params: {
@@ -14,8 +14,8 @@ export function renderDiscordCard(params: {
 
   return html`
     <div class="card">
-      <div class="card-title">Discord</div>
-      <div class="card-sub">Bot status and channel configuration.</div>
+      <div class="card-title">${t("channels.discord.title")}</div>
+      <div class="card-sub">${t("channels.discord.desc")}</div>
       ${accountCountLabel}
 
       <div class="status-list" style="margin-top: 16px;">
@@ -37,18 +37,22 @@ export function renderDiscordCard(params: {
         </div>
       </div>
 
-      ${discord?.lastError
-        ? html`<div class="callout danger" style="margin-top: 12px;">
+      ${
+        discord?.lastError
+          ? html`<div class="callout danger" style="margin-top: 12px;">
             ${discord.lastError}
           </div>`
-        : nothing}
+          : nothing
+      }
 
-      ${discord?.probe
-        ? html`<div class="callout" style="margin-top: 12px;">
+      ${
+        discord?.probe
+          ? html`<div class="callout" style="margin-top: 12px;">
             Probe ${discord.probe.ok ? "ok" : "failed"} ·
             ${discord.probe.status ?? ""} ${discord.probe.error ?? ""}
           </div>`
-        : nothing}
+          : nothing
+      }
 
       ${renderChannelConfigSection({ channelId: "discord", props })}
 

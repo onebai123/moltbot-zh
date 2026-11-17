@@ -1,9 +1,9 @@
 import { html, nothing } from "lit";
-
-import { formatAgo } from "../format";
+import { t } from "../i18n/index.js";
 import type { GoogleChatStatus } from "../types";
-import { renderChannelConfigSection } from "./channels.config";
 import type { ChannelsProps } from "./channels.types";
+import { formatAgo } from "../format";
+import { renderChannelConfigSection } from "./channels.config";
 
 export function renderGoogleChatCard(params: {
   props: ChannelsProps;
@@ -14,8 +14,8 @@ export function renderGoogleChatCard(params: {
 
   return html`
     <div class="card">
-      <div class="card-title">Google Chat</div>
-      <div class="card-sub">Chat API webhook status and channel configuration.</div>
+      <div class="card-title">${t("channels.googlechat.title")}</div>
+      <div class="card-sub">${t("channels.googlechat.desc")}</div>
       ${accountCountLabel}
 
       <div class="status-list" style="margin-top: 16px;">
@@ -34,9 +34,11 @@ export function renderGoogleChatCard(params: {
         <div>
           <span class="label">Audience</span>
           <span>
-            ${googleChat?.audienceType
-              ? `${googleChat.audienceType}${googleChat.audience ? ` · ${googleChat.audience}` : ""}`
-              : "n/a"}
+            ${
+              googleChat?.audienceType
+                ? `${googleChat.audienceType}${googleChat.audience ? ` · ${googleChat.audience}` : ""}`
+                : "n/a"
+            }
           </span>
         </div>
         <div>
@@ -49,18 +51,22 @@ export function renderGoogleChatCard(params: {
         </div>
       </div>
 
-      ${googleChat?.lastError
-        ? html`<div class="callout danger" style="margin-top: 12px;">
+      ${
+        googleChat?.lastError
+          ? html`<div class="callout danger" style="margin-top: 12px;">
             ${googleChat.lastError}
           </div>`
-        : nothing}
+          : nothing
+      }
 
-      ${googleChat?.probe
-        ? html`<div class="callout" style="margin-top: 12px;">
+      ${
+        googleChat?.probe
+          ? html`<div class="callout" style="margin-top: 12px;">
             Probe ${googleChat.probe.ok ? "ok" : "failed"} ·
             ${googleChat.probe.status ?? ""} ${googleChat.probe.error ?? ""}
           </div>`
-        : nothing}
+          : nothing
+      }
 
       ${renderChannelConfigSection({ channelId: "googlechat", props })}
 

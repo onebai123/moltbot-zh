@@ -206,6 +206,16 @@ export const zhCN: Record<string, string> = {
   "cron.scheduler": "调度器",
   "cron.scheduler.desc": "网关拥有的定时调度器状态。",
   "cron.nextWake": "下次唤醒",
+  "cron.newJob": "新建任务",
+  "cron.newJob.desc": "创建定时唤醒或代理运行。",
+  "cron.jobsList": "任务列表",
+  "cron.jobsList.desc": "网关中存储的所有定时任务。",
+  "cron.runHistory": "运行历史",
+  "cron.runHistory.desc": "最近运行记录",
+  "cron.selectJob": "（选择任务）",
+  "cron.noJobs": "暂无任务。",
+  "cron.noRuns": "暂无运行记录。",
+  "cron.selectJobHint": "选择任务以查看运行历史。",
   "common.yes": "是",
   "common.no": "否",
 
@@ -270,6 +280,102 @@ export const zhCN: Record<string, string> = {
   "nav.resources": "资源",
   "nav.docs": "文档",
   "nav.docs.title": "文档（新标签页打开）",
+
+  // App render
+  "nav.expandSidebar": "展开侧边栏",
+  "nav.collapseSidebar": "收起侧边栏",
+
+  // Sessions
+  "sessions.noSessions": "未找到会话。",
+
+  // Debug
+  "debug.models": "模型",
+  "debug.models.desc": "来自 models.list 的目录。",
+  "debug.eventLog": "事件日志",
+  "debug.eventLog.desc": "最近的网关事件。",
+  "debug.noEvents": "暂无事件。",
+
+  // Logs
+  "logs.noEntries": "暂无日志条目。",
+
+  // Nodes (additional)
+  "nodes.desc": "配对设备和实时链接。",
+  "nodes.noNodes": "未找到节点。",
+  "nodes.devices.desc": "配对请求和角色令牌。",
+  "nodes.noPairedDevices": "暂无配对设备。",
+  "nodes.execBinding": "Exec 节点绑定",
+  "nodes.execBinding.desc": "使用 exec host=node 时将代理固定到特定节点。",
+  "nodes.loadConfigHint": "加载配置以编辑绑定。",
+  "nodes.noNodesWithExec": "没有可用 system.run 的节点。",
+  "nodes.noAgents": "未找到代理。",
+  "nodes.execApprovals": "Exec 审批",
+  "nodes.execApprovals.desc": "exec host=gateway/node 的允许列表和审批策略。",
+  "nodes.loadApprovalsHint": "加载 exec 审批以编辑允许列表。",
+  "nodes.noExecApprovals": "暂无节点提供 exec 审批。",
+  "nodes.allowlist": "允许列表",
+  "nodes.allowlist.desc": "不区分大小写的 glob 模式。",
+  "nodes.noAllowlistEntries": "暂无允许列表条目。",
+  "action.loadConfig": "加载配置",
+  "action.loadApprovals": "加载审批",
+
+  // Config
+  "config.noChanges": "无更改",
+  "config.noItems": "暂无项目。点击「添加」创建一个。",
+  "config.noCustomEntries": "暂无自定义条目。",
+  "config.form": "表单",
+  "config.raw": "原始",
+  "config.unsavedChanges": "未保存的更改",
+  "config.unsavedChange": "{n} 个未保存的更改",
+
+  // Channels
+  "channels.statusAndConfig": "频道状态和配置。",
+  "channels.noSnapshot": "暂无快照。",
+  "channels.configured": "已配置",
+  "channels.linked": "已链接",
+  "channels.running": "运行中",
+  "channels.connected": "已连接",
+  "channels.lastConnect": "最后连接",
+  "channels.lastMessage": "最后消息",
+  "channels.authAge": "认证时长",
+  "channels.showQr": "显示二维码",
+  "channels.relink": "重新链接",
+  "channels.waitForScan": "等待扫描",
+  "channels.logout": "注销",
+  
+  // WhatsApp
+  "channels.whatsapp.title": "WhatsApp",
+  "channels.whatsapp.desc": "链接 WhatsApp Web 并监控连接状态。",
+  
+  // Telegram
+  "channels.telegram.title": "Telegram",
+  "channels.telegram.desc": "Bot 状态和频道配置。",
+  
+  // Slack
+  "channels.slack.title": "Slack",
+  "channels.slack.desc": "Socket 模式状态和频道配置。",
+  
+  // Signal
+  "channels.signal.title": "Signal",
+  "channels.signal.desc": "signal-cli 状态和频道配置。",
+  
+  // Discord
+  "channels.discord.title": "Discord",
+  "channels.discord.desc": "Bot 状态和频道配置。",
+  
+  // iMessage
+  "channels.imessage.title": "iMessage",
+  "channels.imessage.desc": "macOS 桥接状态和频道配置。",
+  
+  // Google Chat
+  "channels.googlechat.title": "Google Chat",
+  "channels.googlechat.desc": "Chat API webhook 状态和频道配置。",
+  
+  // Nostr
+  "channels.nostr.title": "Nostr",
+  "channels.nostr.desc": "通过 Nostr 中继的去中心化私信 (NIP-04)。",
+
+  // Markdown sidebar
+  "sidebar.noContent": "暂无内容",
 
   // Errors
   "error.connection": "连接失败",
